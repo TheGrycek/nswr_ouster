@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+ 
+    <node pkg="nswr_ouster" type="nswr_ouster" name="nswr_ouster" output="screen"/>
+    
+    <!-- Rviz visualization-->
+    <node launch-prefix="nice" pkg="rviz" type="rviz" name="rviz" args="-d $(find nswr_ouster)/rviz_cfg/nswr_ouster.rviz" />  
+	
+     <!-- Static transforms -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="os1_lidar" args="0 0 0 0 0 0 1 map os1_lidar" />  
+
+</launch>
