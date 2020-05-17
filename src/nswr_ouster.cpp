@@ -24,7 +24,6 @@ cv::Mat invert_image(cv::Mat const& input)
 
 void callback(const sensor_msgs::PointCloud2::ConstPtr &cloudMsg)
 {
-    std::cout<<"Jesteśmy w callbacku" << std::endl;
     // Convert message to point cloud
     pcl::PointCloud<pcl::PointXYZI>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZI>);
     pcl::fromROSMsg(*cloudMsg, *cloud);  //  obiekt cloud
@@ -40,8 +39,6 @@ void callback(const sensor_msgs::PointCloud2::ConstPtr &cloudMsg)
 
     cv::Mat range_img_scaled = cv::Mat(SCANNER_ROWS, SCANNER_COLS, CV_8UC1);
     range_img_scaled = 0;
-//    std::cout<<"Oto rozmiary obrazu do zapisu"<<std::endl;
-//    std::cout << range_img<<std::endl;
 
     // Create intensity image
     cv::Mat intensity_img = cv::Mat(SCANNER_ROWS, SCANNER_COLS, CV_8UC1);
@@ -103,12 +100,12 @@ void callback(const sensor_msgs::PointCloud2::ConstPtr &cloudMsg)
         }
     }
 
-    std::cout <<"Biggest vertical: "<< biggest_vertical<<std::endl;
-    std::cout <<"Smallest vertical: "<< smallest_vertical<<std::endl;
-    std::cout <<"Biggest dist: "<< biggest_dist<<std::endl;
-    std::cout <<"Smallest dist: "<< smallest_dist<<std::endl;
-    std::cout <<"Smallest intensity: "<< smallest_intensity<<std::endl;
-    std::cout <<"Biggest intesity: "<< biggest_intensity<<std::endl;
+    // std::cout <<"Biggest vertical: "<< biggest_vertical<<std::endl;
+    // std::cout <<"Smallest vertical: "<< smallest_vertical<<std::endl;
+    // std::cout <<"Biggest dist: "<< biggest_dist<<std::endl;
+    // std::cout <<"Smallest dist: "<< smallest_dist<<std::endl;
+    // std::cout <<"Smallest intensity: "<< smallest_intensity<<std::endl;
+    // std::cout <<"Biggest intesity: "<< biggest_intensity<<std::endl;
 
 
     for (int idx = 0; idx < cloud->points.size(); idx++)
